@@ -13,6 +13,7 @@ using namespace std;
 string makeTags(string one, string two);
 string makeOutWord(string one, string two);
 string extraEnd(string one);
+string firstTwo(string one);
 
 int main()
 {
@@ -33,6 +34,16 @@ int main()
 	assert(extraEnd("Hi") == "HiHiHi");
 	assert(extraEnd("Art") == "rtrtrt");
 	assert(extraEnd("Major") == "ororor");
+	
+	assert(firstTwo("Hello") == "He");
+	assert(firstTwo("abcdefg") == "ab");
+	assert(firstTwo("ab") == "ab");
+	assert(firstTwo("Art") == "Ar");
+	assert(firstTwo("Major") == "Ma");
+	
+	
+	
+	
 	
 	
 	return 0;
@@ -67,6 +78,16 @@ string extraEnd(string one)
 	one = one.substr(length, 2);
 	results = one + one + one;
 	
+	
+	return results;
+}
+
+string firstTwo(string one)
+{
+	string results;
+
+	one = one.substr(0, 2);
+	results = one;
 	
 	return results;
 }
