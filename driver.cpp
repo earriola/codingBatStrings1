@@ -5,6 +5,7 @@
 using namespace std;
 
 string makeTags(string one, string two);
+string makeOutWord(string one, string two);
 
 int main()
 {
@@ -13,6 +14,13 @@ int main()
 	assert(makeTags("cite", "Yay") == "<cite>Yay</cite>");
 	assert(makeTags("g", "Micheal") == "<g>Micheal</g>");
 	assert(makeTags("a", "Emmanuel") == "<a>Emmanuel</a>");
+	
+	assert(makeOutWord("<<>>", "Yay") == "<<Yay>>");
+	assert(makeOutWord("<<>>", "WooHoo") == "<<WooHoo>>");
+	assert(makeOutWord("[[]]", "word") == "[[word]]");
+	assert(makeOutWord("!!!!", "Art") == "!!Art!!");
+	assert(makeOutWord("~~~~", "Major") == "~~Major~~");
+	
 	
 	return 0;
 }
@@ -23,5 +31,15 @@ string makeTags(string one, string two)
 	
 	results = "<" + one + ">" + two + "</" + one + ">";
 
+	return results;
+}
+
+string makeOutWord(string one, string two)
+{
+	string results = one;
+	int const POSITION = 2;
+	
+	results.insert(POSITION, two);
+	
 	return results;
 }
