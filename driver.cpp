@@ -14,6 +14,7 @@ string makeTags(string one, string two);
 string makeOutWord(string one, string two);
 string extraEnd(string one);
 string firstTwo(string one);
+string firstHalf(string one);
 
 int main()
 {
@@ -41,8 +42,11 @@ int main()
 	assert(firstTwo("Art") == "Ar");
 	assert(firstTwo("Major") == "Ma");
 	
-	
-	
+	assert(firstHalf("WooHoo") == "Woo");
+	assert(firstHalf("HelloThere") == "Hello");
+	assert(firstHalf("abcdef") == "abc");
+	assert(firstHalf("Object") == "Obj");
+	assert(firstHalf("Oriented") == "Orie");
 	
 	
 	
@@ -89,5 +93,19 @@ string firstTwo(string one)
 	one = one.substr(0, 2);
 	results = one;
 	
+	return results;
+}
+
+string firstHalf(string one)
+{
+	string results;
+	int length = 0;
+	
+	length = one.length();
+	length = length / 2;
+	
+	one = one.substr(0, length);
+	results = one;
+
 	return results;
 }
