@@ -1,3 +1,9 @@
+//Author: Emmanuel, Miquel
+//Date: April 24, 2017
+//Class: ITSE 2421 - Object Oriented Programming
+//Instructor: Prof. Welch
+//Problem Descr: Solve String-1 Coding Bat exercises
+
 #include <iostream>
 #include <cstdlib>
 #include <string>
@@ -6,6 +12,7 @@ using namespace std;
 
 string makeTags(string one, string two);
 string makeOutWord(string one, string two);
+string extraEnd(string one);
 
 int main()
 {
@@ -20,6 +27,12 @@ int main()
 	assert(makeOutWord("[[]]", "word") == "[[word]]");
 	assert(makeOutWord("!!!!", "Art") == "!!Art!!");
 	assert(makeOutWord("~~~~", "Major") == "~~Major~~");
+	
+	assert(extraEnd("Hello") == "lololo");
+	assert(extraEnd("ab") == "ababab");
+	assert(extraEnd("Hi") == "HiHiHi");
+	assert(extraEnd("Art") == "rtrtrt");
+	assert(extraEnd("Major") == "ororor");
 	
 	
 	return 0;
@@ -40,6 +53,20 @@ string makeOutWord(string one, string two)
 	int const POSITION = 2;
 	
 	results.insert(POSITION, two);
+	
+	return results;
+}
+
+string extraEnd(string one)
+{
+	string results;
+	int length = 0;
+	
+	length = one.length();
+	length = length - 2;
+	one = one.substr(length, 2);
+	results = one + one + one;
+	
 	
 	return results;
 }
